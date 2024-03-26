@@ -1,0 +1,54 @@
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+#define SIZE 30
+
+// Convert the plaintext to lowercase
+void toLowerCase(char plain[], int ps) {
+    for (int i = 0; i < ps; i++) {
+        if (plain[i] >= 'A' && plain[i] <= 'Z')
+            plain[i] += 32;
+    }
+}
+
+// Remove spaces from the plaintext
+int removeSpaces(char* plain, int ps) {
+    int count = 0;
+    for (int i = 0; i < ps; i++) {
+        if (plain[i] != ' ') {
+            plain[count] = plain[i];
+            count++;
+        }
+    }
+    return count;
+}
+
+// Implement the Playfair encryption algorithm
+void playfairEncrypt(char keySquare[5][5], char plain[], int ps) {
+    // Your implementation here
+    // ...
+}
+
+int main() {
+    char keySquare[5][5] = {
+        // Initialize your key square here (unique alphabets)
+        // ...
+    };
+
+    char plainText[SIZE];
+    printf("Enter the plaintext: ");
+    gets(plainText);
+
+    // Preprocess the plaintext
+    int ps = strlen(plainText);
+    toLowerCase(plainText, ps);
+    ps = removeSpaces(plainText, ps);
+
+    // Encrypt the plaintext using Playfair
+    playfairEncrypt(keySquare, plainText, ps);
+
+    printf("Encrypted Text: %s\n", plainText);
+
+    return 0;
+}
